@@ -1,49 +1,47 @@
 # System Health Check Script
 
-## Description
-This Python script is designed to perform a basic health check of your computer system. It verifies disk usage, CPU load, localhost IP address, and internet connectivity.
+This script monitors various system health aspects, including disk usage, CPU usage, localhost connectivity, internet connectivity, and memory usage. It provides a flexible and configurable solution for ensuring that critical system resources are operating within acceptable thresholds.
+
+## Features
+
+- **Disk Usage Check**: Verifies that there's enough free space on the disk.
+- **CPU Usage Check**: Checks if the CPU usage is below a set threshold.
+- **Localhost Connectivity Check**: Ensures the localhost is correctly configured and reachable.
+- **Internet Connectivity Check**: Tests the ability of the device to connect to the internet.
+- **Memory Usage Check**: Monitors the percentage of used memory to ensure it's below the set threshold.
+- **Configurable Thresholds**: Allows customization of thresholds for disk space, CPU, and memory usage.
+- **Detailed Logging**: Utilizes Python's logging module to provide informative status reports and error messages.
+
+## Prerequisites
+
+- Python 3.x
+- `psutil` library
+- `requests` library
 
 ## Installation
 
-**Prerequisites:**
-- Python 3
-- The `psutil` and `requests` libraries. If you don't have them installed, you can install them using pip:
+Before running the script, ensure you have the required libraries installed. You can install them using pip:
 
 ```bash
 pip install psutil requests
 ```
-## Clone the repository or download the script file.
-- Ensure you have the necessary permissions to execute the script.
 
-# Usage
-Run the script using Python 3 from your terminal:
-```bash
-./system_health_check.py
-```
+## Usage
 
-## Script Functions
+1. **Modify the script parameters as needed:**
+    - `DISK_USAGE_THRESHOLD`: The threshold for free disk space (percentage).
+    - `CPU_USAGE_THRESHOLD`: The threshold for CPU usage (percentage).
+    - `MEMORY_USAGE_THRESHOLD`: The threshold for memory usage (percentage).
 
-### `check_disk_usage(disk)`
-- Checks if the specified disk (e.g., `'/'` for the root disk on UNIX systems) has more than 20% free space.
-- Returns `True` if the condition is met.
+2. **Run the script:**
 
-### `check_cpu_usage()`
-- Checks if the CPU usage is below 75%.
-- Returns `True` if the CPU usage is within acceptable limits.
+    ```bash
+    python system_health_check.py
+    ```
 
-### `check_localhost()`
-- Verifies that the localhost IP address is correctly set to `'127.0.0.1'`.
-- Returns `True` if localhost is correctly configured.
+3. **Check the logs for the status report.** If any checks fail, appropriate error messages will be logged.
 
-### `check_connectivity()`
-- Attempts to connect to `https://www.google.com` to verify internet connectivity.
-- Returns `True` if the connection is successful.
+## Contributing
 
-## Output
-The script prints a status report indicating the operational status of each check:
-- Disk Operational
-- CPU Operational
-- Localhost Operational
-- Internet Operational
+Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-Each status is followed by `True` (operational) or `False` (not operational).
